@@ -14,12 +14,12 @@ def Pivote(arreglo):
         suma+=arreglo[i] #n
     minimo=SumArray(arreglo) #C*n
     for i in range(1,len(arreglo)):#n-1
-        ladoIzquierdo=arregloNuevo[i-1]-arregloNuevo[0]#c*n
+        ladoIzquierdo=arregloNuevo[i-1]#c*n
         ladoDerecho=arregloNuevo[len(arregloNuevo)-1]-arregloNuevo[i]#c*n
         diferencia=abs(ladoIzquierdo-ladoDerecho)#c*n
         if(diferencia<minimo): #c*n
             minimo=diferencia #c
-            posicionPivote=i-1 #c
+            posicionPivote=i #c
     return posicionPivote #c
     
 """
@@ -38,3 +38,5 @@ arreglo1= [10,2,4,8]
 print("La posición de pivote del arreglo es: "+str(Pivote(arreglo1)))
 arreglo2=[10,2,5,2,11]
 print("La posición de pivote del arreglo es: "+str(Pivote(arreglo2)))
+arreglo3=[2,1,5,6,20,30,40,3,20,4,5]
+print("La posición de pivote del arreglo es: "+str(Pivote(arreglo3)))
