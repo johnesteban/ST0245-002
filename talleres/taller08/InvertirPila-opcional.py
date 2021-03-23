@@ -6,16 +6,16 @@ class Pila:
          return self.items == []
 
      def incluir(self, item):
-         self.items.append(item)
+         self.items.insert(0,item)
 
      def extraer(self):
-         return self.items.pop()
+         return self.items.pop(0)
 
      def tamano(self):
          return len(self.items)
      
      def extraerFinal(self):
-         return self.items.pop(0)
+         return self.items.pop()
      
              
 
