@@ -18,11 +18,11 @@ class Pila:
         if(op=='+'):
             return a+b
         elif(op=='-'):
-            return a-b
+            return b-a
         elif(op=='*'):
             return a*b
         elif(op=='/'):
-            return a/b
+            return b/a
         else:
             print("Operacion no valida")
 
