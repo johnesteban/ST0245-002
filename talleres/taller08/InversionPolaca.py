@@ -38,7 +38,7 @@ class InversionPolaca():
             else:
                 resultado=total.operate(i,int(total.extraer()),int(total.extraer()))
                 total.incluir(resultado)
-        return resultado
+        return total.extraer()
 
     print(evaluate())
 

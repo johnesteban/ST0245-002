@@ -84,7 +84,7 @@ class __main__():
     print(Solicitudes.asignarSolicitudes(neveras,solicitudes))
     
     neveras1=Pila()
-    solicitudes1=Pila()
+    solicitudes1=Cola()
     print(Solicitudes.asignarSolicitudes(neveras1,solicitudes1))
     print(Solicitudes.asignarSolicitudes(neveras1,solicitudes))
     print(Solicitudes.asignarSolicitudes(neveras,solicitudes1))
