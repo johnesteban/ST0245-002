@@ -1,58 +1,43 @@
-
-class Cola():
-    def __init__(self):
-        self.items = []
-
-    def estaVacia(self):
-        return self.items == []
-
-    def agregar(self, item):
-        self.items.append(item)
-
-    def avanzar(self):
-        return self.items.pop(0)
-
-    def tamano(self):
-        return len(self.items)
+from collections import deque
     
 class Banco():
     def Simulacion(fila1, fila2, fila3, fila4): 
-        filaFinal=Cola() #C1
-        while(fila1.tamano()>0 or fila2.tamano()>0 or fila3.tamano()>0 or fila4.tamano()>0): #C2*n donde n es la fila con mayor numero de personas
-            if fila1.tamano()>0: #C3*n
-                filaFinal.agregar(fila1.avanzar()) #C4*n
-            if fila2.tamano()>0: #C5*n
-                filaFinal.agregar(fila2.avanzar()) #C6*n
-            if fila3.tamano()>0: #C7*n
-                filaFinal.agregar(fila3.avanzar())#C8*n
-            if fila4.tamano()>0: #C9*n
-                filaFinal.agregar(fila4.avanzar()) #C10*n
+        filaFinal=deque() #C1
+        while(len(fila1)>0 or len(fila2)>0 or len(fila3)>0 or len(fila4)>0): #C2*n donde n es la fila con mayor numero de personas
+            if len(fila1)>0: #C3*n
+                filaFinal.append(fila1.popleft()) #C4*n
+            if len(fila2)>0: #C5*n
+                filaFinal.append(fila2.popleft()) #C6*n
+            if len(fila3)>0: #C7*n
+                filaFinal.append(fila3.popleft())#C8*n
+            if len(fila4)>0: #C9*n
+                filaFinal.append(fila4.popleft()) #C10*n
         cajero1="Cajero 1" #C11
         cajero2="Cajero 2" #C12
         StringFinal="" #C13
-        while filaFinal.tamano()>1: #C14*(m-1) donde m es el total de personas en el banco
-            StringFinal+=cajero1+" atendiendo a "+filaFinal.avanzar()+"\n" #C15*(m-1)
-            StringFinal+=cajero2+" atendiendo a "+filaFinal.avanzar()+"\n" #C16*(m-1)
-        if filaFinal.tamano()>0: #C17
-            StringFinal+=cajero1+" atendiendo a "+filaFinal.avanzar() #C18 
+        while len(filaFinal)>1: #C14*(m-1) donde m es el total de personas en el banco
+            StringFinal+=cajero1+" atendiendo a "+filaFinal.popleft()+"\n" #C15*(m-1)
+            StringFinal+=cajero2+" atendiendo a "+filaFinal.popleft()+"\n" #C16*(m-1)
+        if len(filaFinal)>0: #C17
+            StringFinal+=cajero1+" atendiendo a "+filaFinal.popleft() #C18 
         return StringFinal #C19
             
 class __main__():
-    fila1=Cola()
-    fila2=Cola()
-    fila3=Cola()
-    fila4=Cola()
-    fila1.agregar("Esteban")
-    fila1.agregar("Angela")
-    fila1.agregar("Laura")
-    fila1.agregar("John")
-    fila1.agregar("Diego")
-    fila2.agregar("Nicolas")
-    fila2.agregar("Santiago")
-    fila2.agregar("Gladys")
-    fila3.agregar("Diana")
-    fila4.agregar("Camilo")
-    fila4.agregar("Alejandra")
+    fila1=deque()
+    fila2=deque()
+    fila3=deque()
+    fila4=deque()
+    fila1.append("Esteban")
+    fila1.append("Angela")
+    fila1.append("Laura")
+    fila1.append("John")
+    fila1.append("Diego")
+    fila2.append("Nicolas")
+    fila2.append("Santiago")
+    fila2.append("Gladys")
+    fila3.append("Diana")
+    fila4.append("Camilo")
+    fila4.append("Alejandra")
     print("---SIMULACIÓN BANCO---")
     print(Banco.Simulacion(fila1,fila2,fila3,fila4))
     print("Simulación terminada")
