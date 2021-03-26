@@ -22,7 +22,7 @@ class Solicitudes():
             solicitud=solicitudes.popleft() #C7*n
             i=0 #C8*n
             while len(neveras)>0 and i<solicitud.cantidad: #C9*n*m donde m es el numero de neveras
-                nevera=neveras.pop() #C10*n*m
+                nevera=neveras.popleft() #C10*n*m
                 StringAcumulativa+=nevera.concatenar()+',' #C11*n*m
                 i+=1 #C12*n*m
             StringFinal+=solicitud.nombreT+'-->'+'['+StringAcumulativa[:len(StringAcumulativa)-1]+']'+'\n' #C13*n
