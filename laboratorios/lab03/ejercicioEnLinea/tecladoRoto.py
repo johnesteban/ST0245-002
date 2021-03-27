@@ -1,24 +1,7 @@
-class Lista():  
-        def __init__(self):
-            self.items = []
-    
-        def estaVacia(self):
-            return self.items == []
-    
-        def agregarDerecha(self, item):
-            self.items.append(item)
-        
-        def agregarIzquierda(self,item):
-            self.items.insert(0,item)
-    
-        def avanzar(self):
-            return self.items.pop(0)
-    
-        def tamano(self):
-            return len(self.items)
+from collections import deque
 
 class __main__():
-    lista=Lista() #C1
+    lista=deque() #C1
     texto=str(input("Ingrese el texto")) #C2
     #asd[gfh[[dfh]hgh]fdfhd[dfg[d]g[d]dg 
     #dddfgdfhgfhasdhghfdfhdgdg
@@ -30,17 +13,17 @@ class __main__():
     while i<len(texto): #C6*n donde n es la longitud del texto ingresado
         if(texto[i]=="["): #C7*n
             if aux==0: #C8*n
-                lista.agregarIzquierda(cadenaTemporal)#C9*n
+                lista.appendleft(cadenaTemporal)#C9*n
             else:
-                lista.agregarDerecha(cadenaTemporal)
+                lista.append(cadenaTemporal)
             cadenaTemporal="" #C10*n
             aux=0 #C11*n
             i+=1 #C12*n
         elif(texto[i]=="]"):
             if aux==0:
-                lista.agregarIzquierda(cadenaTemporal)
+                lista.appendleft(cadenaTemporal)
             else:
-                lista.agregarDerecha(cadenaTemporal)
+                lista.append(cadenaTemporal)
             cadenaTemporal=""
             aux=1
             i+=1
@@ -48,13 +31,13 @@ class __main__():
             cadenaTemporal+=texto[i]
             i+=1
     if aux == 0: #C13
-      lista.agregarIzquierda(cadenaTemporal) #C14
+      lista.appendleft(cadenaTemporal) #C14
     else:
-      lista.agregarDerecha(cadenaTemporal) 
+      lista.append(cadenaTemporal) 
        
     StringFinal=""  #C15
-    for i in range(lista.tamano()): #C16*m donde m es la longitud de la cadena sin los corchetes
-      StringFinal+=lista.avanzar() #C17*m
+    for i in range(len(lista)): #C16*m donde m es la longitud de la cadena sin los corchetes
+      StringFinal+=lista.popleft() #C17*m
     print (StringFinal) #C18
         
             
