@@ -4,9 +4,10 @@ contador=0
 StringAcumulativa=""
 for i in range(consultas): #C1*n
     contador=0 #C2*n
-    print("Ingrese la ronda "+str(i+1)+" de números ")
-    consulta1=int(input()) #C3*n
-    consulta2=int(input()) #C4*n
+    entrada=input()
+    consulta1,consulta2=entrada.split()
+    consulta1=int(consulta1) #C3*n
+    consulta2=int(consulta2) #C4*n
     if consulta1>=consulta2 or consulta1<1 or consulta2>len(texto):
         continue
     for j in range(consulta1,consulta2): #C5*m*n, en donde m es la diferencia entre el entero 2 y entero 1, en el peor caso será igual a la longitud de la cadena

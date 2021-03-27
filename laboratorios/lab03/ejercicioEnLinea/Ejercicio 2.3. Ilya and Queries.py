@@ -20,9 +20,11 @@ for i in range(1,len(cadena)): #C7*(n-1) donde n es la longitud de la cadena ing
 StringAcumulativa="" #C11
 for i in range(consultas): #C12*m, donde m es el número de consultas que se desean hacer
     copia=cola.copy() #C13*m
-    print("Ingrese la ronda "+str(i+1)+" de numeros") #C14*m
-    entero1=int(input()) #C15*m
-    entero2=int(input()) #C16*m
+    #print("Ingrese la ronda "+str(i+1)+" de numeros") #C14*m
+    entrada=input()
+    entero1,entero2=entrada.split()
+    entero1=int(entero1) #C15*m
+    entero2=int(entero2) #C16*m
     if entero1>=entero2 or entero1<1 or entero2>len(cadena):
         continue
     else: #C17*m
